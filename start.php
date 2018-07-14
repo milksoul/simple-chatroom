@@ -1,7 +1,7 @@
 <?php
 use Workerman\Worker;
 
-require_once './vendor/autoload.php';
+require_once './vendor/workerman/Autoloader.php';
 
 $global_uid = 0;
 function handle_connection($connection){
