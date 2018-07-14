@@ -23,7 +23,7 @@ function handle_close($connection){
     }
 }
 
-$text_worker = new Worker('text://0.0.0.0:1743422');
+$text_worker = new Worker('text://0.0.0.0:8989');
 $text_worker->count = 1;
 
 $text_worker->onConnect = 'handle_connection';
