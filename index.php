@@ -14,7 +14,7 @@ function task2()
         yield;
     }
 }
-
+echo 1;die();
 $scheduler = new \Libs\Scheduler();
 $scheduler->newTask(task1());
 $scheduler->newTask(task2());
