@@ -1,6 +1,4 @@
 <?php
-namespace Libs;
-
 class Scheduler{
     protected $maxTaskId = 0;
     protected $taskMap = []; // taskId => task

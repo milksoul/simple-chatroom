@@ -1,5 +1,6 @@
 <?php
-
+require_once './Libs/Scheduler.php';
+require_once './Libs/Task.php';
 function task1()
 {
     for($i=1;$i<10;++$i){
@@ -14,8 +15,8 @@ function task2()
         yield;
     }
 }
-echo 1;die();
-$scheduler = new \Libs\Scheduler();
+
+$scheduler = new Scheduler();
 $scheduler->newTask(task1());
 $scheduler->newTask(task2());
 
