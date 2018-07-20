@@ -22,7 +22,12 @@ $scheduler->newTask(task1());
 $scheduler->newTask(task2());
 
 $scheduler->run();*/
-
+function getTaskId() {
+    return new SystemCall(function(Task $task, Scheduler $scheduler) {
+        $task->setSendValue($task->getTaskId());
+        $scheduler->schedule($task);
+    });
+}
 function task($max) {
     $tid = (yield getTaskId()); // <-- here's the syscall!
     for ($i = 1; $i <= $max; ++$i) {
