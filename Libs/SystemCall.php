@@ -10,7 +10,8 @@ class SystemCall{
 
     public function __invoke(Task $task, Scheduler $scheduler)
     {
-        return $this->callback($task, $scheduler);
+        $callback = $this->callback;
+        return $callback($task, $scheduler);
     }
     public function getTaskId() {
         return new SystemCall(function(Task $task,Scheduler $scheduler){

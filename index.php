@@ -23,8 +23,8 @@ $scheduler->newTask(task2());
 
 $scheduler->run();*/
 
-function task($max){
-    $tid = (yield getTaskId());
+function task($max) {
+    $tid = (yield getTaskId()); // <-- here's the syscall!
     for ($i = 1; $i <= $max; ++$i) {
         echo "This is task $tid iteration $i.\n";
         yield;
