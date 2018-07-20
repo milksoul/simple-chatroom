@@ -23,7 +23,12 @@ class Scheduler {
     public function run() {
         while (!$this->taskQueue->isEmpty()) {
             $task = $this->taskQueue->dequeue();
-            $task->run();
+            $retval = $task->run();
+
+            if($retval instanceof SystemCall){
+                $retval($task, $this);
+                continue;
+            }
 
             if ($task->isFinished()) {
                 unset($this->taskMap[$task->getTaskId()]);
